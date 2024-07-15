@@ -1,0 +1,34 @@
+<div class="py-5">
+  <div class="container" [ngStyle]="dynamicStyles">
+      <h2>Angular Form Example</h2>
+      <form (ngSubmit)="submitForm()" #form="ngForm">
+        <div class="form-group">
+          <label for="name">Enter your name</label><br>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="formData.name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Enter your email</label>
+          <br>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="formData.email" required>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- dynamic styles and component creation -->
+<!-- 
+  <div>
+    <input [(ngModel)]="componentName" placeholder="Enter component name" />
+    <button (click)="generateComponent()">Generate Component</button>
+  </div>
+  <div>
+    <label for="styles">Enter CSS Styles:</label><br>
+    <textarea id="styles" #stylesInput rows="4" cols="50" placeholder="property: value"></textarea>
+  
+    <button (click)="applyStyles(stylesInput.value)">Apply Styles</button>
+  </div> -->

@@ -1,0 +1,116 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <!-- Contact Us Section -->
+      <div class="col-md-4 position-relative">
+        <h5>
+          <input *ngIf="editMode" type="text" [(ngModel)]="titles.contactUs" class="form-control" />
+          <span *ngIf="!editMode">{{ titles.contactUs }}</span>
+          <i *ngIf="editMode" class="bi bi-pen edit-icon" (click)="toggleEditContactInfo()"></i>
+        </h5>
+        <ul class="list-unstyled">
+          <li><i id="nav-item" class="bi bi-phone"></i> {{ contactInfo.phone }}</li>
+          <li><i id="nav-item" class="bi bi-envelope"></i> {{ contactInfo.email }}</li>
+          <li><i id="nav-item" class="bi bi-geo-alt"></i> {{ contactInfo.address }}</li>
+        </ul>
+
+    <!-- Edit Contact Info Form in Modal -->
+    <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': editContactInfo}" [ngStyle]="{'display': editContactInfo ? 'block' : 'none'}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Contact Info</h5>
+            <button type="button" class="close" (click)="toggleEditContactInfo()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="saveContactInfo()">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" class="form-control" [(ngModel)]="contactInfo.phone" name="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="contactInfo.email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" [(ngModel)]="contactInfo.address" name="address" required>
+              </div>
+              <div class="form-group" style="margin-top: 10px;">
+                <button type="submit" style="padding: 10px;" class="btn btn-primary">Save Contact Info</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Quick Links Section -->
+  <div class="col-md-4">
+    <h5>
+      <input *ngIf="editMode" type="text" [(ngModel)]="titles.quickLinks" class="form-control" />
+      <span *ngIf="!editMode">{{ titles.quickLinks }}</span>
+      <i *ngIf="editMode" class="bi bi-pen edit-icon" (click)="openAddItemModal()"></i>
+    </h5>
+    <ul class="list-unstyled">
+      <li *ngFor="let item of footerItems; let i = index">
+        <a [href]="item.url" class="footer-link">{{ item.title }}</a>
+        <i *ngIf="editMode" class="bi bi-x remove-icon" (click)="removeItem(i)"></i>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Follow Us Section -->
+  <div class="col-md-4">
+    <h5>
+      <input *ngIf="editMode" type="text" [(ngModel)]="titles.followUs" class="form-control" />
+      <span *ngIf="!editMode">{{ titles.followUs }}</span>
+    </h5>
+    <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a><br>
+    <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a><br>
+    <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a><br>
+  </div>
+</div>
+
+<!-- Add New Footer Item Section -->
+<div *ngIf="editMode" class="row mt-3">
+  <div class="col-12"> 
+    <div class="py-2">
+      <button (click)="saveData()" class="btn btn-success">Save Data</button>
+    </div>
+  </div>
+</div>
+  </div>
+  <!-- Add New Footer Item Modal -->
+  <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showAddItemModal}" [ngStyle]="{'display': showAddItemModal ? 'block' : 'none'}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Footer Item</h5>
+          <button type="button" class="close" (click)="closeAddItemModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addItem()" #footerForm="ngForm">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="newItem.title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="url">URL</label>
+              <input type="text" id="url" class="form-control" [(ngModel)]="newItem.url" name="url" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeAddItemModal()">Close</button>
+          <button type="button" class="btn btn-primary" [disabled]="!footerForm.form.valid" (click)="addItem()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

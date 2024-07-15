@@ -1,0 +1,24 @@
+<div class="py-5">
+<div class="container">
+  <h1>Tabs Components</h1>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation" *ngFor="let tab of tabContents; let i = index">
+      <button class="nav-link" [class.active]="i === 0" [attr.id]="'tab' + i + '-tab'" data-bs-toggle="tab"
+              [attr.data-bs-target]="'#tab' + i" type="button" role="tab" [attr.aria-controls]="'tab' + i"
+              [attr.aria-selected]="i === 0">{{ tab.title }}</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade" *ngFor="let tab of tabContents; let i = index" [class.show]="i === 0" [class.active]="i === 0"
+         [attr.id]="'tab' + i" role="tabpanel" [attr.aria-labelledby]="'tab' + i + '-tab'">
+      <input type="text"  
+       [(ngModel)]="tab.title" class="form-control mb-2" placeholder="Tab Title" [disabled]="!editMode">
+      <textarea [(ngModel)]="tab.content" class="form-control" placeholder="Tab Content" [disabled]="!editMode"></textarea>
+    </div>
+  </div>
+  <div *ngIf="editMode">
+    <button (click)="addTab()" class="btn btn-primary mt-2 btns">Add Tab</button>
+    <button (click)="saveData()" class="btn btn-success mt-2">Save Data</button>
+  </div>
+</div>
+</div>

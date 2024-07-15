@@ -1,0 +1,16 @@
+.banner-container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-container img {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  /* .toast-center-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+} */

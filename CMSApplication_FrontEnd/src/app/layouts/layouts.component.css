@@ -1,0 +1,33 @@
+/* .card {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .d-none {
+    display: none;
+  }
+   */
+
+   .card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+.heading {
+  text-align: center;
+  padding: 20px; 
+  border-radius: 10px; 
+  font-size: 2.5em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}
+.headings {
+
+  padding: 20px; 
+  border-radius: 10px; 
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}

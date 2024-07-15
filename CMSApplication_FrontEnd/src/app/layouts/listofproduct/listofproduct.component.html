@@ -1,0 +1,86 @@
+<div class="logo">Logo</div>
+<div class="banner">
+    <div class="banner-content">
+        <div class="banner-text">
+            <h2>Your Banner Text Here</h2>
+            <p>Additional details or call-to-action text can go here.</p>
+        </div>
+        <img src="assets/images/banner.png" alt="Banner Image" class="banner-image">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- Sidebar for Filters -->
+        <div class="col-md-3">
+            <div class="filter-sidebar">
+                <div class="filter-title">Filter by Price</div>
+                <div class="filter-group price-range">
+                    <input type="range" min="0" max="1000" step="10" value="500" id="priceRange">
+                    <label for="priceRange">Price Range: $0 - $1000</label>
+                </div>
+                <div class="filter-group">
+                    <h5>Price Range</h5>
+                    <input type="checkbox" id="price1" name="price" value="0-100">
+                    <label for="price1">$0 - $100</label><br>
+                    <input type="checkbox" id="price2" name="price" value="101-200">
+                    <label for="price2">$101 - $200</label><br>
+                    <input type="checkbox" id="price3" name="price" value="201-300">
+                    <label for="price3">$201 - $300</label><br>
+                    <input type="checkbox" id="price4" name="price" value="301-400">
+                    <label for="price4">$301 - $400</label><br>
+                    <input type="checkbox" id="price5" name="price" value="401-500">
+                    <label for="price5">$401 - $500</label><br>
+                    <input type="checkbox" id="price6" name="price" value="501-1000">
+                    <label for="price6">$501 - $1000</label>
+                </div>
+            </div>
+        </div>
+        <!-- Product Listing -->
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                    <div class="sort-by me-3">
+                        <label for="sortOptions" class="form-label">Sort by:</label>
+                        <select id="sortOptions" class="form-select" (change)="sortProducts($event)">
+                            <option value="relevance">Relevance</option>
+                            <option value="top-rated">Top Rated</option>
+                            <option value="name-asc">Name (Ascending)</option>
+                            <option value="name-desc">Name (Descending)</option>
+                            <option value="price-low">Price (Lower)</option>
+                            <option value="price-high">Price (Higher)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="pagination me-3">
+                        <button (click)="previousPage()" [disabled]="currentPage === 1">&laquo; </button>
+                <button *ngFor="let page of pages" (click)="setPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo; </button>
+                    </div>
+                    <div class="view-toggle">
+                        <button (click)="setView('grid')" [class.active]="view === 'grid'" class="btn btn-outline-secondary"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+                        <button (click)="setView('list')" [class.active]="view === 'list'" class="btn btn-outline-secondary"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" [ngClass]="{'grid-view': view === 'grid', 'list-view': view === 'list'}">
+                <div *ngFor="let product of paginatedProducts" [ngClass]="{'col-md-4 mb-4': view === 'grid', 'col-12': view === 'list'}">
+                    <div class="product-item card" (click)="goToProductDetail(product.id)">
+                        <div class="product-content">
+                            <img [src]="product.imageUrl" class="card-img-top product-image" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h3 class="product-name card-title">{{ product.name }}</h3>
+                                <p class="product-description card-text">{{ product.description }}</p>
+                                <p class="product-price card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                                <p class="product-category card-text"><strong>Category:</strong> {{ product.category }}</p>
+                                <p class="product-stock card-text"><strong>In Stock:</strong> {{ product.stock }}</p>
+                            </div>
+                            <button (click)="addToCart(product); $event.stopPropagation();" class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">Footer</div>

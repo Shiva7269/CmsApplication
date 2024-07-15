@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="heading">Layouts</h1>
+    <button class="btn btn-primary" (click)="homeNavigation()">Go to Home</button>
+  </div>
+  <div class="row headings mt-4">
+    <!-- First Column -->
+    <div class="col-md-6" (click)="openLayout('layout2')">
+      <div class="card">
+        <app-homepage-layout2></app-homepage-layout2>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6" (click)="openLayout('layout1')">
+      <div class="card">      
+        <app-homepage-layout1></app-homepage-layout1>
+      </div>
+    </div>
+
+    <!-- Third Column -->
+    <!-- <div class="col-md-4" (click)="openLayout('layout3')">
+      <div class="card">
+        <app-homepage-layout3></app-homepage-layout3>
+      </div>
+    </div> -->
+  </div>
+</div>

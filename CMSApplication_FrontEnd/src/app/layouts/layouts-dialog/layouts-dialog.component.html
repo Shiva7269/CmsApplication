@@ -1,0 +1,9 @@
+<!-- layouts-dialog.component.html -->
+<div class="dialog-header">
+  <button mat-button class="create-btn" (click)="createLayOut(data.layout)">Create Page</button>
+  <button mat-button class="close-btn" (click)="onClose()">X</button>
+</div>
+<h1 mat-dialog-title class="dialog-title">Template</h1>
+<div mat-dialog-content class="dialog-content">
+  <ng-template appEntry></ng-template>
+</div>

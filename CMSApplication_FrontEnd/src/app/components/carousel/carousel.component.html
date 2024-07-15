@@ -1,0 +1,83 @@
+<div class="py-5">
+  <div class="container">
+    <h1>Carousel Components</h1>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let item of items; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}" [attr.data-bs-interval]="item.interval || 5000">
+          <img [src]="item.imageUrl" class="d-block w-100" [alt]="item.title" (click)="showItemDetails(item)">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="text-start"> 
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+            <div class="text-start"> 
+            <button *ngIf="editMode" class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Only display the form if editMode is true -->
+    <div *ngIf="editMode">
+      <div class="form-group mt-4">
+        <div class="container">
+          <div class="rectangle-with-dotted-border d-none d-md-block" *ngIf="items.length === 0" (click)="openAddItemModal()">
+            <span class="plus-sign">+</span>
+          </div>           
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-inline-flex">
+              
+              <div *ngIf="items.length > 0" class="d-inline-flex">
+                <i *ngIf="editMode" class="bi bi-plus edit-icon ms-2 me-2" (click)="openAddItemModal()"></i>
+                <button class="btn btn-primary" (click)="openAddItemModal()">Add Items</button>
+              </div>
+            </div>
+      
+            <!-- Placeholder for dotted line plus sign when items.length === 0 -->
+          
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': isModalOpen}" *ngIf="isModalOpen">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ isEditMode ? 'Edit Item' : 'Add New Item' }}</h5>
+              <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="newTitle">Title</label>
+                <input type="text" class="form-control" id="newTitle" [(ngModel)]="selectedItem.title" placeholder="Enter title">
+              </div>
+              <div class="form-group">
+                <label for="newDescription">Description</label>
+                <input type="text" class="form-control" id="newDescription" [(ngModel)]="selectedItem.description" placeholder="Enter description">
+              </div>
+              <div class="form-group">
+                <label for="newImageUrl">Image URL</label>
+                <input type="text" class="form-control" id="newImageUrl" [(ngModel)]="selectedItem.imageUrl" placeholder="Click here to select an image file" (click)="triggerFileInput()">
+                <input type="file" (change)="onFileSelected($event)" class="d-none" id="fileInput">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+              <button type="button" class="btn btn-primary" (click)="saveItem()">Save Item</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

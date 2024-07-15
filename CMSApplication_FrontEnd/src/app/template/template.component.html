@@ -1,0 +1,84 @@
+<div class="row mx-0">
+  
+  
+  <!-- Button Container -->
+  <div class="col-2 p-3 bg-light border rounded-3 shadow-sm sticky-top" cdkDropList (cdkDropListDropped)="onDropSidebar($event)">
+    <div class="logo-container mb-3">
+      <img src="assets/images/techdenali_cover.jpg" alt="Logo" class="img-fluid">
+  </div>
+    <!-- Navbar -->
+    <div class="styled-icon mb-3" *ngIf="layout !== 'layout2'" cdkDrag (cdkDragStarted)="dragStart('navbar')" (click)="addComponent('navbar')">
+        <i class="fas fa-bars fa-lg me-2"></i>
+        <span>Add Navbar</span>
+    </div>
+    
+    <!-- Header -->
+    <div class="styled-icon mb-3" *ngIf="layout !== 'layout1'" cdkDrag (cdkDragStarted)="dragStart('header')" (click)="addComponent('header')">
+        <i class="fas fa-heading fa-lg me-2"></i>
+        <span>Add Header</span>
+    </div>
+    
+    <!-- Banner -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('banner')" (click)="addComponent('banner')">
+        <i class="fas fa-image fa-lg me-2"></i>
+        <span>Add Banner</span>
+    </div>
+    
+    <!-- Form -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('form')" (click)="addComponent('form')">
+        <i class="fas fa-file-alt fa-lg me-2"></i>
+        <span>Add Form</span>
+    </div>
+    
+    <!-- Footer -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('footer')" (click)="addComponent('footer')">
+        <i class="fas fa-clipboard fa-lg me-2"></i>
+        <span>Add Footer</span>
+    </div>
+    
+    <!-- Carousel -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('carousel')" (click)="addComponent('carousel')">
+        <i class="fas fa-sliders-h fa-lg me-2"></i>
+        <span>Add Carousel</span>
+    </div>
+    
+    <!-- Accordion -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('accordion')" (click)="addComponent('accordion')">
+        <i class="fas fa-bars fa-lg me-2"></i>
+        <span>Add Accordion</span>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="styled-icon mb-3" cdkDrag (cdkDragStarted)="dragStart('tabs')" (click)="addComponent('tabs')">
+        <i class="fas fa-folder fa-lg me-2"></i>
+        <span>Add Tabs</span>
+    </div>
+</div>
+
+
+  <!-- Main content area -->
+  <div class="col-10 bordered">
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-auto">
+          <button class="btn btn-primary mt-2" (click)="onSubmit()">Save</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-primary mt-2" (click)="previewPage()">Preview</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 bordered scrollable" cdkDropList (cdkDropListDropped)="onDropLayout($event)">
+          <!-- Drop area placeholder -->
+          <div class="drop-placeholder" *ngIf="isDragging">Drop here</div>
+
+          <!-- Container for dynamically loaded components -->
+          <ng-container #dynamicComponentContainer>
+            <!-- Components will be dynamically loaded here -->
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

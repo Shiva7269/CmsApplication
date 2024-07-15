@@ -1,0 +1,111 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 position-relative">
+        <img [src]="headerImageUrl || 'assets/images/Section2.png'" alt="Logo" class="logo">
+        <i *ngIf="editMode" class="bi bi-pen edit-icon" (click)="triggerFileInput()"></i>
+      </div>
+      <div class="col-6 text-right">
+        <nav>
+          <div *ngIf="headerItems && headerItems.length > 0; else noItems">
+            <nav>
+              <ng-container *ngFor="let item of headerItems; let i = index">
+                <a [href]="item.url" class="nav-link">{{ item.title }}</a>
+                <i *ngIf="editMode" class="bi bi-pen edit-icon" (click)="openEditItemModal(i)"></i>
+              </ng-container>
+              <i *ngIf="editMode" class="bi bi-plus edit-icon" (click)="openAddItemModal()"></i>
+            </nav>
+          </div>
+          <ng-template #noItems>
+            <p>Add Header Links</p>
+            <i  *ngIf="editMode"  class="bi bi-plus edit-icon" (click)="openAddItemModal()"></i>
+          </ng-template>
+        </nav>
+      </div>
+    </div>
+  </div>
+ 
+  
+  <div *ngIf="editMode">
+    <div class="container mt-3">
+      <input type="file" (change)="onLogoSelected($event)" class="d-none" id="headerFileInput">
+      <div class="py-2">
+        <button (click)="saveData()" class="btn btn-success">Save Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Item Modal -->
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="showEditItemModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ editMode ? (editIndex === null ? 'Add New Header Item' : 'Edit Header Item') : 'View Header Item' }}
+          </h5>
+          <button type="button" class="close" (click)="closeModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form *ngIf="editMode && (editIndex !== null); else viewMode">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="headerItems[editIndex].title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="url">URL</label>
+              <input type="text" id="url" class="form-control" [(ngModel)]="headerItems[editIndex].url" name="url" required>
+            </div>
+          </form>
+          <ng-template #viewMode>
+            <div class="form-group" *ngIf="editIndex !== null && headerItems[editIndex]">
+              <label>Title</label>
+              <p>{{ headerItems[editIndex].title }}</p>
+            </div>
+            <div class="form-group" *ngIf="editIndex !== null && headerItems[editIndex]">
+              <label>URL</label>
+              <p>{{ headerItems[editIndex].url }}</p>
+            </div>
+          </ng-template>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" *ngIf="editMode && (editIndex !== null)" (click)="removeItem()">Remove</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="editMode && (editIndex !== null)" [disabled]="!isValidItem()" (click)="saveItem()">Save Changes</button>
+          <button type="button" class="btn btn-primary" *ngIf="editMode && (editIndex === null)" [disabled]="!isValidItem()" (click)="addItem()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Item Modal -->
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="showAddItemModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Header Item</h5>
+          <button type="button" class="close" (click)="closeAddItemModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addItem()" #headerForm="ngForm">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="newItem.title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="url">URL</label>
+              <input type="text" id="url" class="form-control" [(ngModel)]="newItem.url" name="url" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeAddItemModal()">Close</button>
+          <button type="button" class="btn btn-primary" [disabled]="!headerForm.form.valid" (click)="addItem()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

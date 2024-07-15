@@ -1,0 +1,48 @@
+/* Style for delete button */
+button[mat-button][cdkFocusInitial] {
+    background-color: #f44336; /* Red color */
+    color: white; /* White text */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  button[mat-button][cdkFocusInitial]:hover {
+    background-color: #d32f2f; /* Darker red color on hover */
+  }
+  
+  /* Style for cancel button */
+  button[mat-button][mat-dialog-close="false"] {
+    background-color: #ccc; /* Light gray color */
+    color: #333; /* Dark gray text */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  button[mat-button][mat-dialog-close="false"]:hover {
+    background-color: #bbb; /* Slightly darker gray color on hover */
+  }
+  
+  /* Optional: Add padding and margin to the buttons for better appearance */
+  button[mat-button] {
+    padding: 8px 16px; /* Adjust padding as needed */
+    margin-right: 8px; /* Adjust margin as needed */
+  }
+  
+  /* Style for the close button */
+button[mat-icon-button] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the 'x' icon */
+mat-icon {
+  font-size: 24px;
+  color: #666; /* Adjust the color as needed */
+}
+
+/* Optional: Hover effect for the close button */
+button[mat-icon-button]:hover mat-icon {
+  color: #333; /* Darker color on hover */
+}

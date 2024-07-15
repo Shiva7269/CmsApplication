@@ -1,0 +1,73 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "pages": [
+    {
+      "id": 1,
+      "pageName": "test",
+      "pageUrl": "test",
+      "components": [
+        {
+          "name": "header"
+        },
+        {
+          "name": "accordion",
+          "items": [
+            {
+              "title": "dsa",
+              "content": "This is the 1 item'ssdaaccordion body."
+            },
+            {
+              "title": "asd",
+              "content": "asd"
+            }
+          ]
+        },
+        {
+          "name": "footer"
+        }
+      ]
+    },
+    {
+      "pageName": "shiva",
+      "pageUrl": "shiva",
+      "id": 2,
+      "components": [
+        {
+          "name": "header"
+        },
+        {
+          "name": "texteditor"
+        },
+        {
+          "name": "accordion",
+          "items": [
+            {
+              "title": "shiva",
+              "content": "hi this is shiva"
+            }
+          ]
+        },
+        {
+          "name": "footer"
+        }
+      ]
+    }
+  ],
+  "products": []
+}

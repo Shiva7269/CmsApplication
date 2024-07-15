@@ -1,0 +1,27 @@
+<div class="py-5">
+<div class="container">
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <h1>Accordion component</h1>
+    <div *ngFor="let item of accordionItems; let i = index" class="accordion-item">
+      <h2 class="accordion-header"  [id]="'flush-heading' + i">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#flush-collapse' + i" aria-expanded="false"
+                [attr.aria-controls]="'flush-collapse' + i">
+          <input type="text" [(ngModel)]="item.title" class="form-control" [disabled]="!editMode"/>
+        </button>
+      </h2>
+      <div [id]="'flush-collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'flush-heading' + i"
+           data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <textarea [(ngModel)]="item.content" class="form-control"  [disabled]="!editMode"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="editMode">
+  
+  <button (click)="addItem()" class="btn btn-primary mt-2 btns">Add Item</button>
+  <button (click)="saveData()" class="btn btn-success mt-2">Save Data</button>
+  </div>
+</div>
+</div>

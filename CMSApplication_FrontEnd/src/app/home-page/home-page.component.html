@@ -1,0 +1,33 @@
+  <div class="container">
+    <!-- <button class="btn btn-primary" style="margin-right: 10px;" (click)="openCreatePageModal()">Create a Page</button> -->
+    <button class="btn btn-primary" (click)="openLayoutsModal()">Create a Page</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Page Name</th>
+          <th>Page Title</th>
+          <th>Page Url</th>
+          <th>Preview</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let page of pages; let i=index">
+          <td>{{ i + 1 }}</td> <!-- Displaying auto-incremented ID -->
+          <td>{{ page.pageName }}</td>
+          <td class="hover-pointer" (click)="redirectToTemplate(page.pageUrl)">{{ page.pageUrl }}</td>
+  <td class="hover-pointer" (click)="preview(page._id)">
+    <ng-container *ngIf="pageContainsComponents(page)">
+      <i class="bi bi-eye" [ngStyle]="{'color': 'green', 'font-size': '24px'}"></i>
+    </ng-container>
+    <ng-container *ngIf="!pageContainsComponents(page)">
+      <i class="bi bi-eye-slash"  [ngStyle]="{'color': 'red', 'font-size': '24px'}"></i>
+    </ng-container>
+  </td>
+  <td>
+    <div (click)="deletePage(page._id)"><i class="bi bi-trash" [ngStyle]="{'color': 'red', 'font-size': '24px'}"></i></div>
+  </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
