@@ -1,0 +1,39 @@
+<div class="container" *ngIf="pageData">
+  <header>
+    <ng-container *ngFor="let component of pageData.components">
+      <ng-container *ngIf="componentMap[component.name]">
+        <ng-container *ngIf="component.name === 'header'">
+          <ng-container *dynamicComponent="{ component: componentMap[component.name].type, data: { editMode: component.name ? editMode : false } }"></ng-container>
+          <button  *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('header')">Remove header</button>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </header>
+  
+  <main>
+    <aside class="sidebar" *ngIf="componentMap['carousel']?.added">
+      <ng-container *dynamicComponent="{ component: componentMap['carousel'].type, data: { editMode: editMode } }"></ng-container>
+      <button  *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('carousel')">Remove carousel</button>
+    </aside>
+    
+    <section class="body-area">
+      <ng-container *ngFor="let component of pageData.components">
+        <ng-container *ngIf="componentMap[component.name] && component.name !== 'header' && component.name !== 'footer'">
+          <ng-container *dynamicComponent="{ component: componentMap[component.name].type, data: { editMode: component.name ? editMode : false } }"></ng-container>
+          <button  *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent(component.name)">Remove {{ component.name }}</button>
+        </ng-container>
+      </ng-container>
+    </section>
+  </main>
+  
+  <footer>
+    <ng-container *ngFor="let component of pageData.components">
+      <ng-container *ngIf="componentMap[component.name]">
+        <ng-container *ngIf="component.name === 'footer'">
+          <ng-container *dynamicComponent="{ component: componentMap['footer'].type, data: { editMode: editMode } }"></ng-container>
+          <button  *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('footer')">Remove footer</button>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </footer>
+</div>

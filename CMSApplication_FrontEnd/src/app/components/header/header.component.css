@@ -1,0 +1,118 @@
+/* Header Styles */
+.header {
+  background-color: #f8f9fa;
+  padding: 15px 0;
+}
+
+.logo {
+  max-height: 50px;
+}
+
+.edit-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem; /* Adjusted font size */
+  color: #007bff;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid #007bff;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 10px; /* Added space between icons */
+}
+
+.edit-icon:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.bi-plus.edit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  margin-top: -5px;
+
+  
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: flex-end; /* Align links to the right */
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  display: block; /* Show the modal */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-dialog {
+  max-width: 500px;
+  margin: 100px auto;
+}
+
+/* General Modal Styles */
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Modal Header Styles */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #f7f7f7;
+}
+
+/* Modal Title Styles */
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Close Button Styles */
+.modal-header .close {
+  font-size: 1.5rem;
+  color: #000;
+  opacity: 0.5;
+}
+
+.modal-header .close:hover,
+.modal-header .close:focus {
+  color: #000;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+/* Modal Footer Styles */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  background-color: #f7f7f7;
+}
+
+/* Button Styles */
+.modal-footer .btn {
+  margin-left: 0.5rem;
+}

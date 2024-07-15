@@ -1,0 +1,41 @@
+.header {
+    background-color: #ccc;
+    padding: 10px 0;
+  }
+  
+  .logo,
+  .navigation {
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .header-banner {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .intro-text {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .boxes {
+    margin-top: 20px;
+  }
+  
+  .box {
+    background-color: #ccc;
+    padding: 40px; /* Increase padding for bigger boxes */
+    text-align: center;
+    height: 300px; /* Set a fixed height for bigger boxes */
+  }
+  
+  .footer {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }

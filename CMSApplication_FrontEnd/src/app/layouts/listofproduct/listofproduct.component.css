@@ -1,0 +1,237 @@
+/* Existing styles */
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    background-color: #fff;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    height: 270px;
+}
+
+.product-name {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.product-description, .product-price, .product-category, .product-stock {
+    margin: 10px 0;
+    color: #666;
+}
+
+.product-price strong {
+    color: #0d6efd;
+    font-size: 1.1em;
+}
+
+.filter-sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px; /* Distance from the top */
+    margin: 20px 0px;
+}
+
+.filter-title {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.filter-group label {
+    margin-bottom: 0;
+}
+
+.price-range input {
+    width: 100%;
+}
+
+/* New styles for view toggle */
+.view-toggle {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-toggle button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.view-toggle button.active {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+/* Grid view styles */
+.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f8f9fa;
+}
+
+.grid-view .product-item {
+    flex: 1 0 30%;
+}
+
+/* List view styles */
+.list-view {
+    display: block;
+    background-color: #f8f9fa;
+}
+
+.list-view .product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: left;
+    /* height: 200px; */
+}
+
+.list-view .product-content {
+    display: flex;
+    align-items: center;
+}
+
+.list-view .product-image {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border: none;
+    padding: 0;
+}
+
+.list-view .card-body {
+    flex: 1;
+    padding-left: 40px;
+}
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+.banner {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-text {
+    flex: 1;
+    padding-left: 100px;
+}
+
+.banner-image {
+    width: 50%;
+    max-width: 700px;
+}
+/* Adjust button styles */
+.add-to-cart-btn {
+    /* background-color: #27ae60;
+    border-color: #27ae60; */
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1em;
+    transition: background-color 0.3s, border-color 0.3s;
+    /* margin-left: 40px; */
+    position: absolute;
+    bottom: 15px;
+    margin: auto;
+    right: 86px;
+}
+
+/* .add-to-cart-btn:hover {
+    background-color: #219150;
+    border-color: #1e8e41;
+} */
+.list-view .add-to-cart-btn {
+    margin-left: 40px; /* Space between the product content and the button */
+    /* position: absolute;
+    bottom: 15px;
+    margin: auto; */
+    right: 60px;
+}
+.list-view  .product-item.card {
+    height: auto;
+    cursor: pointer;
+}
+.logo {
+    grid-area: logo;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+
+  
+ 
+  .footer {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .product-item.card {
+    height: 590px;
+    cursor: pointer;
+}
+.view-toggle .btn:hover {
+    background-color: #ddd;
+}

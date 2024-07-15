@@ -1,0 +1,51 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "logo navigation navigation"
+    "header header header"
+    "sidebar body-area body-area"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: 60px 60px 1fr 60px;
+  height: 44vh;
+}
+ 
+.logo {
+  grid-area: logo;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
+  grid-area: navigation;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  grid-area: header;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body-area {
+  grid-area: body-area;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1px;
+}

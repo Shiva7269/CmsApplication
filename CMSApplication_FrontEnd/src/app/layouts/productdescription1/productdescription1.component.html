@@ -1,0 +1,66 @@
+<div class="logo">Logo</div>
+<div class="container">
+<div *ngIf="product; else loading">
+    <div class="product-display">
+      <div class="product-image">
+        <img [src]="product.imageUrl" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <p class="review-info">No reviews yet</p>
+        <p class="product-id">ID {{product.id}}</p>
+        <h2 class="product-price">${{product.price}}</h2>
+        <h3 class="product-name">{{product.name}}</h3>
+        <h3 class="product-name">{{product.description}}</h3>
+        <div class="quantity-selector">
+          <label for="quantity">Qty</label>
+          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="product.stock">
+          <span class="stock-status" [ngClass]="{'out-of-stock': product.stock === 0}">
+            {{ product.stock > 0 ? 'In stock' : 'Out of stock' }}
+          </span>
+        </div>
+        <button class="add-to-cart" [disabled]="product.stock === 0">Add To Cart</button>
+        <a href="#" class="wish-list">Sign in to add to wish list</a>
+      </div>
+    </div>
+  
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Description
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">{{product.description}}</div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+         Reviews
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">${{product.reviews}}</div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Spaces
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">{{product.shipping}}</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading product...</p>
+  </ng-template>
+</div>
+<div class="footer">Footer</div>
+  
+
+

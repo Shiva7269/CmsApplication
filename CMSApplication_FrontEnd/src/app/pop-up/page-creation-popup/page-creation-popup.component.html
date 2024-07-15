@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Create a New Page</h2>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="pageName">Page Name:</label>
+      <input type="text" id="pageName" formControlName="pageName">
+    </div>
+    <div>
+      <label for="pageUrl">URL:</label>
+      <input type="text" id="pageUrl" formControlName="pageUrl">
+    </div>
+    <div>
+      <!-- <label for="pageLayout">Layout:</label>
+      <select id="pageLayout" formControlName="pageLayout">
+        <option *ngFor="let layout of layouts" [value]="layout">{{layout}}</option>
+      </select> -->
+      {{layout}}
+    </div>
+    <button type="submit"  [disabled]="createForm.invalid">Create</button>
+  </form>
+</div>

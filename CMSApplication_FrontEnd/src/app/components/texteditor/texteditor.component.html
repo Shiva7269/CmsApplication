@@ -1,0 +1,19 @@
+<div class="py-5">
+<div class="container">
+<ng-container *ngIf="editMode">
+  <div class="mb-3">
+    <label for="message" class="form-label">Message:</label>
+    <ejs-richtexteditor id="message" name="message" [(value)]="storefrontContent"></ejs-richtexteditor>
+  </div>
+
+  <button (click)="saveData()" class="btn btn-success mt-2">Save Data</button>
+</ng-container>
+
+<div *ngIf="!editMode">
+  <div class="mb-3">
+    <!-- <label for="message" class="form-label">Text Editor</label> -->
+    <div [innerHTML]="storefrontContent"></div>
+  </div>
+</div>
+</div>
+</div>

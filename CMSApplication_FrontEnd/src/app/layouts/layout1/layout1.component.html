@@ -1,0 +1,45 @@
+<div class="page-wrapper" *ngIf="pageData">
+  <div class="sidebar">
+    <div class="logo" *ngIf="componentMap['banner']?.added">
+      <ng-container *dynamicComponent="{ component: componentMap['banner'].type, data: { editMode: editMode } }"></ng-container>
+      <button *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('banner')">Remove banner</button>
+    </div>
+    <nav class="navigation">
+      <ng-container *ngFor="let component of pageData.components">
+        <ng-container *ngIf="componentMap[component.name]">
+          <ng-container *ngIf="component.name === 'navbar'">
+            <ng-container *dynamicComponent="{ component: componentMap[component.name].type, data: { editMode: editMode } }"></ng-container>
+            <button *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent(component.name)">Remove {{ component.name }}</button>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </nav>
+  </div>
+
+  <main class="content">
+    <aside class="carousel" *ngIf="componentMap['carousel']?.added">
+      <ng-container *dynamicComponent="{ component: componentMap['carousel'].type, data: { editMode: editMode } }"></ng-container>
+      <button *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('carousel')">Remove carousel</button>
+    </aside>
+
+    <section class="body-area">
+      <ng-container *ngFor="let component of pageData.components">
+        <ng-container *ngIf="componentMap[component.name] && component.name !== 'header' && component.name !== 'footer' && component.name !== 'navbar'">
+          <ng-container *dynamicComponent="{ component: componentMap[component.name].type, data: { editMode: editMode } }"></ng-container>
+          <button *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent(component.name)">Remove {{ component.name }}</button>
+        </ng-container>
+      </ng-container>
+    </section>
+
+    <footer>
+      <ng-container *ngFor="let component of pageData.components">
+        <ng-container *ngIf="componentMap[component.name]">
+          <ng-container *ngIf="component.name === 'footer'">
+            <ng-container *dynamicComponent="{ component: componentMap['footer'].type, data: { editMode: editMode } }"></ng-container>
+            <button *ngIf="editMode" class="btn btn-danger mt-2" (click)="removeComponent('footer')">Remove footer</button>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </footer>
+  </main>
+</div>

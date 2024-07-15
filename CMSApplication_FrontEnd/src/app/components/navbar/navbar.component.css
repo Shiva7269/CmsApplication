@@ -1,0 +1,106 @@
+/* .navbar {
+  background-color: #f8f9fa; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+} */
+
+.navbar-toggler {
+  border: none; /* Remove border */
+}
+
+.navbar-toggler-icon {
+  background-color: #333; /* Dark color for the toggler icon */
+}
+
+.navbar-nav {
+  margin-top: 10px; /* Add space between toggler icon and nav items */
+}
+
+.navbar-nav .nav-item {
+  margin-bottom: 8px; 
+  text-align: left;
+}
+
+.navbar-nav .nav-link {
+  color: #333; /* Text color */
+  font-weight: bold; /* Bold font weight */
+  transition: color 0.3s, background-color 0.3s;  /* Smooth color, background, and border transition */
+  position: relative;
+  padding-bottom: 10px; /* Space for border */
+  border-radius: 4px; /* Optional: rounded corners for the background */
+  border-bottom: 1px solid #ddd; /* Default border style */
+  padding-left: 10px;
+}
+
+.navbar-nav .nav-link.underline {
+  border-bottom: 1px solid #ddd; /* Default border style */
+}
+
+/* .navbar-nav .nav-link.big-underline {
+  border-bottom: 2px solid #007bff; 
+} */
+
+.navbar-nav .nav-link:hover {
+  color: #fff; /* Hover color */
+  background-color: #0b5ed7;
+  border-bottom-color: transparent; /* Remove border color on hover */
+  transform: scale(1.1); /* Enlarge the link on hover */
+}
+
+.navbar-nav .nav-link:hover.underline {
+  background-color: #0b5ed7;
+  border-bottom-color: transparent; /* Remove border color on hover */
+  transform: scale(1.1);  /* Enlarge the link on hover */
+}
+
+.navbar-nav .nav-link:hover.big-underline {
+  background-color: #0b5ed7;
+  border-bottom-color: transparent; /* Remove border color on hover */
+  transform: scale(1.1);  /* Enlarge the link on hover */
+}
+
+.test .navbar {
+  background: red;
+}
+
+.logo {
+  max-height: 70px;
+}
+
+.btns {
+  margin-right: 5px;
+}
+
+.toast-bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.edit-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem; /* Adjusted font size */
+  color: #007bff;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid #007bff;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 10px; /* Added space between icons */
+}
+
+.edit-icon:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.bi-plus.edit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  margin-top: -5px;
+}

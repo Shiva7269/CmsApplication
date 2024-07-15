@@ -1,0 +1,15 @@
+<div class="py-5">
+  <div class="banner-container">
+    <img [src]="bannerImageUrl" class="img-fluid w-100" alt="Banner">
+  </div>
+  
+  <div *ngIf="editMode" class="mt-4">
+    <div class="form-group">
+      <label for="bannerImageUrl">Banner Image URL</label>
+      <input type="text" [(ngModel)]="bannerImageUrl" class="form-control" id="bannerImageUrl" placeholder="Enter image URL" readonly>
+      <button (click)="triggerFileInput()" class="btn btn-secondary mt-2">Upload Image</button>
+      <input type="file" (change)="onBannerSelected($event)" class="d-none" id="bannerFileInput">
+    </div>
+    <button (click)="saveBannerImage()" class="btn btn-success mt-2">Save Banner Image</button>
+  </div>
+</div>

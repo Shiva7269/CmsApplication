@@ -1,0 +1,11 @@
+<div *ngIf="pageData">
+  <div *ngFor="let component of pageData.components">
+    <ng-container *ngIf="componentMap[component.name]">
+      <ng-container *dynamicComponent="{
+           component: componentMap[component.name].type, 
+           data: { editMode: component.name  ? editMode : false }
+         }">
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

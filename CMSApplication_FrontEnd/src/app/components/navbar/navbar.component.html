@@ -1,0 +1,49 @@
+<div class="py-5">
+  <div class="container">
+    <!-- <h1>Nav Components</h1> -->
+    <div class="position-relative">
+      <img [src]="navImageUrl || 'assets/images/Section2.png'" alt="Logo" class="logo">
+      <i *ngIf="editMode" class="bi bi-pen edit-icon" (click)="triggerFileInput()"></i>
+    </div>
+    <div *ngIf="editMode">
+      <div class="container mt-3">
+        <input type="file" (change)="onNavImageSelected($event)" class="d-none" id="headerFileInput">
+        <div class="py-2">
+          <button (click)="saveData()" class="btn btn-success">Save Data</button>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar-expand-lg navbar-light ">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="bar" id="navbarNav">
+        <ul class="navbar-nav flex-column">
+          <li class="nav-item" *ngFor="let item of navbarItems">
+            <a class="nav-link" [href]="item.url">{{ item.title }}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div *ngIf="editMode">
+      <div class="container mt-3">
+        <h4>Add New Navbar Item</h4>
+        <form (ngSubmit)="addItem()" #navbarForm="ngForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" [(ngModel)]="newItem.title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="url">URL</label>
+            <input type="text" id="url" class="form-control" [(ngModel)]="newItem.url" name="url" required>
+          </div>
+          <div class="py-2">
+            <button type="submit" class="btn btn-primary btn btns" [disabled]="!navbarForm.form.valid">Add</button>
+            <button (click)="saveData()" class="btn btn-success">Save Data</button>
+          </div>
+        </form>
+      </div> 
+    </div>
+  </div>
+</div>

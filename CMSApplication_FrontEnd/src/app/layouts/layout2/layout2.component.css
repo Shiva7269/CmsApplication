@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .logo {
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .sidebar {
+    background-color: #eee;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    background-color: #ddd;
+    padding: 20px;
+  }
+  
+  .body-area {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .footer {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+  }
